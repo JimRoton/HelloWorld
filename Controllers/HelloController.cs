@@ -21,7 +21,7 @@ namespace HelloWorld.Controllers
         [HttpGet]
         public string Get(string myName)
         {
-            return $"Hell {myName}!";
+            return $"Hello {myName}!";
         }
     }
 }
