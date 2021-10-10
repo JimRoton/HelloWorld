@@ -1,0 +1,15 @@
+/Users/jim/Repos/samples/HelloWorld/publish/appsettings.Development.json
+/Users/jim/Repos/samples/HelloWorld/publish/appsettings.json
+/Users/jim/Repos/samples/HelloWorld/publish/build/appsettings.Development.json
+/Users/jim/Repos/samples/HelloWorld/publish/build/appsettings.json
+/Users/jim/Repos/samples/HelloWorld/publish/build/HelloWorld.deps.json
+/Users/jim/Repos/samples/HelloWorld/publish/build/HelloWorld.runtimeconfig.dev.json
+/Users/jim/Repos/samples/HelloWorld/publish/build/HelloWorld.runtimeconfig.json
+/Users/jim/Repos/samples/HelloWorld/publish/HelloWorld.dll
+/Users/jim/Repos/samples/HelloWorld/publish/HelloWorld.deps.json
+/Users/jim/Repos/samples/HelloWorld/publish/HelloWorld.runtimeconfig.json
+/Users/jim/Repos/samples/HelloWorld/publish/HelloWorld.pdb
+/Users/jim/Repos/samples/HelloWorld/publish/Microsoft.OpenApi.dll
+/Users/jim/Repos/samples/HelloWorld/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/jim/Repos/samples/HelloWorld/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/jim/Repos/samples/HelloWorld/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
