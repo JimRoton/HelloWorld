@@ -193,19 +193,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jim.roton\\.nuget\\packages\\": {}
+    "/Users/jim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jim.roton\\OneDrive - Neudesic\\Documents\\Work\\Training\\Tech Night\\Microservices_Docker_and_Kubernetes\\Repos\\HelloWorld\\HelloWorld.csproj",
+      "projectUniqueName": "/Users/jim/Repos/samples/HelloWorld/HelloWorld.csproj",
       "projectName": "HelloWorld",
-      "projectPath": "C:\\Users\\jim.roton\\OneDrive - Neudesic\\Documents\\Work\\Training\\Tech Night\\Microservices_Docker_and_Kubernetes\\Repos\\HelloWorld\\HelloWorld.csproj",
-      "packagesPath": "C:\\Users\\jim.roton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jim.roton\\OneDrive - Neudesic\\Documents\\Work\\Training\\Tech Night\\Microservices_Docker_and_Kubernetes\\Repos\\HelloWorld\\obj\\",
+      "projectPath": "/Users/jim/Repos/samples/HelloWorld/HelloWorld.csproj",
+      "packagesPath": "/Users/jim/.nuget/packages/",
+      "outputPath": "/Users/jim/Repos/samples/HelloWorld/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jim.roton\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/jim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -252,7 +252,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }
