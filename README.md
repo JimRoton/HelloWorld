@@ -36,7 +36,7 @@ docker build .
 #list docker images
 docker image list
 
-docker run -p 5001:5001 [image id]
+docker run --rm -d -p 5000:5000 [image id]
 
 #browse to http://localhost:5000/hello?myName=YourNameHere
 
