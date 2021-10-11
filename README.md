@@ -22,7 +22,7 @@ cd HelloWorld
 dotnet build
 dotnet run
 
-#browse to https://localhost:50001/hello?myName=YourNameHere
+#browse to http://localhost:50000/hello?myName=YourNameHere
 
 ##################### build docker image ###################
 #
@@ -38,7 +38,7 @@ docker image list
 
 docker run -p 5001:5001 [image id]
 
-#browse to https://localhost:5001/hello?myName=YourNameHere
+#browse to http://localhost:5000/hello?myName=YourNameHere
 
 ##################### deploy to aks #######################        
 #
@@ -88,8 +88,11 @@ docker login {$containerName}.azurecr.io
 #get image name
 docker image list
 
+#tag docker image
+docker tag [imageId] {$containerName}.azurecr.io/helloworld:latest
+
 #push docker image to az container
-docker push [image]:[tag] {$containerName}.azurecr.io/helloworld
+docker push {$containerName}.azurecr.io/helloworld:latest
 
 clusterName=[cluster name]
 
