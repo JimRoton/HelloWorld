@@ -1,11 +1,49 @@
-##################### prerequisites ########################
+##################### prerequisites #######################
 #
 # 1. Install git if needed
 # 2. Install dotnet-sdk if needed
 # 3. Install docker if needed
 # 4. Install azure cli if needed
 #
-#######################################################
+###########################################################
+
+##################### test repo ###########################
+#
+# this section clones and test the repo
+#
+###########################################################
+#clone repo
+git clonse https://github.com/JimRoton/HelloWorld
+
+#test repo
+cd HelloWorld
+dotnet build
+dotnet run
+
+#browse to https://localhost:50001/hello?myName=YourNameHere
+
+##################### build docker image ###################
+#
+# this section builds and test the docker image
+#
+###########################################################
+
+#build docker image using Dockerfile
+docker build .
+
+#list docker images
+docker image list
+
+docker run -p 5001:5001 [image id]
+
+#browse to https://localhost:5001/hello?myName=YourNameHere
+
+##################### deploy to aks #######################        
+#
+# this section create a container in azure, pushes to it
+# creates an aks cluster in azure and deploys to it
+#
+###########################################################
 
 #log into azure
 az login
@@ -63,6 +101,12 @@ az aks create \
 
 #list repos
 az acr repository list --name $containerName
+
+#merge aks with kubectl
+az aks get-credentials --resource-group $groupName --name $clusterName
+
+#deploy container to cluster
+kubectl apply -f deployment.yaml
 
 ##################### refrences ########################
 #
