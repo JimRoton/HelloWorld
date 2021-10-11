@@ -17,7 +17,7 @@
 #
 ###########################################################
 #clone repo
-git clonse https://github.com/JimRoton/HelloWorld
+git clone https://github.com/JimRoton/HelloWorld
 
 #test repo
 cd HelloWorld
