@@ -7,6 +7,8 @@
 # 4. azure cli: https://docs.microsoft.com/en-us/cli/azure/
 # 5. Valid Azure Subscription is needed
 #
+# NOTE: the scripts below are formatted for PowerShell
+#
 ###########################################################
 
 ##################### test repo ###########################
@@ -36,7 +38,10 @@ docker build .
 #list docker images
 docker image list
 
-docker run --rm -d -p 5000:5000 [image id]
+#capture imageId
+$imageId="[Image Id]"
+
+docker run --rm -d -p 5000:5000 $imageId
 
 #browse to http://localhost:5000/hello?myName=YourNameHere
 
@@ -55,57 +60,70 @@ az account subscription list --output table
 
 #NOTE: you may be prompted to add 'extension account'.
 
+$subscriptionId="[Subscription Id]"
+
 #set the correct subscriptions if multiple
 az account set --subscription $subscriptionId
+
+############### create/deploy contianer ###################        
+
+#create a group name
+$groupName="[group name]"
 
 #create a resource group
 az group create `
   --location centralus `
   --subscription $subscriptionId `
-  --name [group name]
+  --name $groupName
 
-############### create/deploy contianer ###################        
+#create container name
+$containerName="[container name]"
 
 #create an azure container
 az acr create `
   --admin-enabled true `
   --sku Basic `
   --resource-group $groupName `
-  --name [container name]
+  --name $containerName
 
 #show access key
-az acr credential show --name [container name]
+az acr credential show --name $containerName
 
 #log into container using docker
-docker login [container name].azurecr.io
+docker login {$containerName}.azurecr.io
 #NOTE: username is container name
 
 #get image name
 docker image list
 
 #tag docker image
-docker tag [imageId] [container name].azurecr.io/helloworld:latest
+docker tag $imageId {$containerName}.azurecr.io/helloworld:latest
 
 #push docker image to az container
-docker push [container name].azurecr.io/helloworld:latest
+docker push {$containerName}.azurecr.io/helloworld:latest
 
 ###########################################################
 
 ################# create/deploy aks #######################
 
+#create cluster name
+$clusterName="[cluster name]"
+
 #create aks cluster
 az aks create `
   --generate-ssh-keys `
   --node-count 2 `
-  --resource-group [group name] `
-  --name [cluster name] `
-  --attach-acr [container name]
+  --resource-group $groupName `
+  --name $clusterName `
+  --attach-acr $containerName
 
 #list repos
-az acr repository list --name [container name]
+az acr repository list --name $containerName
 
 #merge aks with kubectl
-az aks get-credentials --resource-group [group name] --name [cluster name]
+az aks get-credentials `
+  --resource-group $groupName `
+  --name $clusterName
 
 #deploy container to cluster
 kubectl apply -f deployment.yaml

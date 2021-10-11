@@ -3,17 +3,18 @@ kind: Deployment
 metadata:
   name: helloworldapi
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: helloworld
-  replicas: 1
   template:
     metadata:
       labels:
         app: helloworld
     spec:
       containers:
-      - name: helloworld
+      - name: helloworld-container
         image: jimacr1.azurecr.io/helloworld:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
