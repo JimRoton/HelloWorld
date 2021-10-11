@@ -1,10 +1,11 @@
 ##################### prerequisites #######################
 #
-# 1. Install git if needed
-# 2. Install dotnet-sdk if needed
-# 3. Install docker if needed
-# 4. Install azure cli if needed
-# 5. Valid Azure Subscription
+# Install all needed prerequisites
+# 1. git: https://git-scm.com/downloads
+# 2. .net core sdk: https://dotnet.microsoft.com/download
+# 3. docker: https://www.docker.com/get-started
+# 4. azure cli: https://docs.microsoft.com/en-us/cli/azure/
+# 5. Valid Azure Subscription is needed
 #
 ###########################################################
 
