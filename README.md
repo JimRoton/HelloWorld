@@ -113,5 +113,6 @@ kubectl apply -f deployment.yaml
 ##################### refrences ########################
 #
 # https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
+# https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 #
 ########################################################
