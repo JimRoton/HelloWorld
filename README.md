@@ -4,6 +4,7 @@
 # 2. Install dotnet-sdk if needed
 # 3. Install docker if needed
 # 4. Install azure cli if needed
+# 5. Valid Azure Subscription
 #
 ###########################################################
 
@@ -112,4 +113,4 @@ kubectl apply -f deployment.yaml
 #
 # https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
 #
-#######################################################
+########################################################
