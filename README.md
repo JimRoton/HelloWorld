@@ -24,7 +24,7 @@ dotnet run
 
 #browse to http://localhost:50000/hello?myName=YourNameHere
 
-##################### build docker image ###################
+##################### build docker image ##################
 #
 # this section builds and test the docker image
 #
@@ -42,7 +42,7 @@ docker run --rm -d -p 5000:5000 [image id]
 
 ##################### deploy to aks #######################        
 #
-# this section create a container in azure, pushes to it
+# this section creates a container in azure, pushes to it
 # creates an aks cluster in azure and deploys to it
 #
 ###########################################################
@@ -53,69 +53,68 @@ az login
 #list account subscriptions
 az account subscription list --output table
 
-#get subscription id
-subscriptionId=$(az account show --query id --output tsv)
-echo $subscriptionId
+#NOTE: you may be prompted to add 'extension account'.
 
 #set the correct subscriptions if multiple
-az account set \
-  --subscription $subscriptionId
-
-groupName=[group name]
+az account set --subscription $subscriptionId
 
 #create a resource group
-az group create \
-  --location centralus \
-  --subscription $subscriptionId \
-  --name $groupName
+az group create `
+  --location centralus `
+  --subscription $subscriptionId `
+  --name [group name]
 
-containerName=[container name]
+############### create/deploy contianer ###################        
 
 #create an azure container
-az acr create \
-  --admin-enabled true \
-  --sku Basic \
-  --resource-group $groupName \
-  --name $containerName
+az acr create `
+  --admin-enabled true `
+  --sku Basic `
+  --resource-group $groupName `
+  --name [container name]
 
 #show access key
-az acr credential show --name $containerName
+az acr credential show --name [container name]
 
 #log into container using docker
-docker login {$containerName}.azurecr.io
-#note: username is container name
+docker login [container name].azurecr.io
+#NOTE: username is container name
 
 #get image name
 docker image list
 
 #tag docker image
-docker tag [imageId] {$containerName}.azurecr.io/helloworld:latest
+docker tag [imageId] [container name].azurecr.io/helloworld:latest
 
 #push docker image to az container
-docker push {$containerName}.azurecr.io/helloworld:latest
+docker push [container name].azurecr.io/helloworld:latest
 
-clusterName=[cluster name]
+###########################################################
+
+################# create/deploy aks #######################
 
 #create aks cluster
-az aks create \
-  --generate-ssh-keys \
-  --node-count 2 \
-  --resource-group $groupName \
-  --name $clusterName \
-  --attach-acr $containerName
+az aks create `
+  --generate-ssh-keys `
+  --node-count 2 `
+  --resource-group [group name] `
+  --name [cluster name] `
+  --attach-acr [container name]
 
 #list repos
-az acr repository list --name $containerName
+az acr repository list --name [container name]
 
 #merge aks with kubectl
-az aks get-credentials --resource-group $groupName --name $clusterName
+az aks get-credentials --resource-group [group name] --name [cluster name]
 
 #deploy container to cluster
 kubectl apply -f deployment.yaml
 
-##################### refrences ########################
+###########################################################
+
+##################### refrences ###########################
 #
 # https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
 # https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 #
-########################################################
+###########################################################
