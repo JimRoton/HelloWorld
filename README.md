@@ -131,11 +131,15 @@ az aks get-credentials `
 #deploy container to cluster
 kubectl apply -f deployment.yaml
 
+#browse to api
+http://[cluster ip]:5000/hello?myName=Jim
+
 ###########################################################
 
 ##################### refrences ###########################
 #
 # https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
 # https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+# https://docs.microsoft.com/en-us/azure/aks/concepts-network
 #
 ###########################################################
