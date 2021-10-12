@@ -89,9 +89,12 @@ az acr create `
 #show access key
 az acr credential show --name $containerName
 
+#grab login creds
+$un="[user name]"
+$pwd="[password]"
+
 #log into container using docker
-docker login {$containerName}.azurecr.io
-#NOTE: username is container name
+docker login -u $un -p $pwd "$($containerName).azurecr.io"
 
 #get image name
 docker image list
