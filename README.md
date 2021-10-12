@@ -97,10 +97,10 @@ docker login {$containerName}.azurecr.io
 docker image list
 
 #tag docker image
-docker tag $imageId {$containerName}.azurecr.io/helloworld:latest
+docker tag $imageId "$($containerName).azurecr.io/helloworld:latest"
 
 #push docker image to az container
-docker push {$containerName}.azurecr.io/helloworld:latest
+docker push "$($containerName).azurecr.io/helloworld:latest"
 
 ###########################################################
 
