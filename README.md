@@ -24,6 +24,7 @@ cd HelloWorld
 dotnet build
 dotnet run
 
+curl "http://localhost:5000/hello?myName=YourNameHere"
 #browse to http://localhost:50000/hello?myName=YourNameHere
 
 ##################### build docker image ##################
@@ -43,6 +44,7 @@ $imageId="[Image Id]"
 
 docker run --rm -d -p 5000:5000 $imageId
 
+curl "http://localhost:5000/hello?myName=YourNameHere"
 #browse to http://localhost:5000/hello?myName=YourNameHere
 
 ##################### deploy to aks #######################        
@@ -68,7 +70,7 @@ az account set --subscription $subscriptionId
 ############### create/deploy contianer ###################        
 
 #create a group name
-$groupName="[group name]"
+$groupName="neu-dallas-tech-night-rg"
 
 #create a resource group
 az group create `
@@ -131,8 +133,13 @@ az aks get-credentials `
 #deploy container to cluster
 kubectl apply -f deployment.yaml
 
-#browse to api
-http://[cluster ip]:5000/hello?myName=Jim
+#get the public ip of the load balancer
+kubectl -n default get svc helloworld-service
+
+$extrIp="[external ip]"
+
+curl "http://$($extrIp):5000/hello?myName=YourNameHere"
+#browse to http://[cluster ip]:5000/hello?myName=Jim
 
 ###########################################################
 

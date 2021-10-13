@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = HelloWorld
-build_property.ProjectDir = /Users/jim/Repos/samples/HelloWorld/
+build_property.ProjectDir = C:\Users\jim.roton\Repos\HelloWorld\

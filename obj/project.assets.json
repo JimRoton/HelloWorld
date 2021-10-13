@@ -193,19 +193,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/jim/.nuget/packages/": {}
+    "C:\\Users\\jim.roton\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jim/Repos/samples/HelloWorld/HelloWorld.csproj",
+      "projectUniqueName": "C:\\Users\\jim.roton\\Repos\\HelloWorld\\HelloWorld.csproj",
       "projectName": "HelloWorld",
-      "projectPath": "/Users/jim/Repos/samples/HelloWorld/HelloWorld.csproj",
-      "packagesPath": "/Users/jim/.nuget/packages/",
-      "outputPath": "/Users/jim/Repos/samples/HelloWorld/obj/",
+      "projectPath": "C:\\Users\\jim.roton\\Repos\\HelloWorld\\HelloWorld.csproj",
+      "packagesPath": "C:\\Users\\jim.roton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jim.roton\\Repos\\HelloWorld\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jim/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jim.roton\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -252,7 +252,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
